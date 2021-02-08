@@ -1,0 +1,40 @@
+/**
+ * @emmet .section.block-list-icon-l-v-4>.w1680>.text>ul.list>li.li.li-$*4>.icon{&nbsp;}+.info>h3+p
+ * @description list-icon-large-vertical多个大图标+文案(垂直上图下文, 带h3)一行内显示
+ * @author tobin.xu
+ * @created 2020.12.1
+ */
+@import '../../static'
+
+list-icon-l-v-4(itemNumber = 4, iconUrl = null, iconWidth = px2empc(125), icH2W = 100%, bgHeightPer = 0, mIconWidth = px2vwmb(120))
+	&.block-list-icon-l-v-4
+		padding px2empc(60) 0
+		.list
+			text-align center
+			.li
+				setInlineOfNum(itemNumber)
+				setInlineImg(itemNumber, '.icon', iconUrl, iconWidth, icH2W, bgHeightPer)
+				padding 2em 3em
+			.info
+				h3
+					font-size px2empc(25)
+				p
+					padding-top .5em
+					font-size px2empc(18)
+		@media (max-width mobile-width)
+			&.section
+				padding px2vwmb(80) 0
+				.list
+					.li
+						width 49.5%
+						padding px2vwmb(30) 0
+						.icon
+							width mIconWidth
+						.info
+							padding-top 2em
+							h3
+								padding 0 6%
+								font-size 1.5rem
+							p
+								padding-top 0.5em
+								font-size 1.2rem

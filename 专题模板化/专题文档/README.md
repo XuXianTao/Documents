@@ -1,4 +1,3 @@
-<style> [red] {color: red}</style>
 # 专题模板化
 
 ## 【课题目标】

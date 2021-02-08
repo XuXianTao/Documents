@@ -1,0 +1,29 @@
+/**
+ * 用于全局的模块的默认样式，方便模块的页面说明
+ * @author tobin.xu
+ * @created 2020.12.07
+ */
+@import '../stylus/static'
+// .overview-content
+//   .section
+//     for i in 'base' tl-kv base-lb base-r
+//       setBg(i)
+//     &.block-base-lb, &.block-base-r
+//       color: #ffffff
+.section
+	h2:empty
+		&:before
+			content: '[<h2> Title]'
+	p:empty
+		&:before
+			content: '[<p> Description]'
+	.model:empty
+		&:before
+			content: '[MODEL]'
+	.bg-text
+		// background gray
+		&:before
+			content: '[Background Text]'
+			position absolute
+#section_textarea-style
+	display none

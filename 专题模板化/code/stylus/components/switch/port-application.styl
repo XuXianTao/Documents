@@ -1,0 +1,116 @@
+/**
+ * @emmet 详见snippets.json
+ * @description tl系列产品端口连接设备的图文分离定位
+ * @author tobin
+ * @created 2020.11.26
+ */
+@import '../../static'
+switch-port-application(imgUrl = null, mImgUrl = null, replaceMobileImg = false)
+  &.block-switch-port-application
+    padding px2empc(80) 0 px2empc(130)
+    .text
+      padding 0 3.5%
+      text-align center
+      p
+        position relative
+        z-index 1
+    .extra-img
+      position relative
+      width px2empc(1154)
+      margin px2empc(160) auto 0
+      background center / contain no-repeat
+      background-image imgUrl
+      wper(x)
+        (x/11.54%)
+      hper(x)
+        (x/1.77%)
+      &:before 
+        content: '';
+        display block
+        height 0
+        padding-top wper(177)
+      .desc
+        width wper(120)
+        line-height 1.2
+        font-size px2empc(20)
+        font-weight 400
+        color #005364
+        &-l
+          top hper(90)
+        &-r
+          top hper(180)
+        &-1
+          left wper(-20)
+        &-2
+          left wper(115)
+        &-3
+          left wper(260)
+          width wper(150)
+        &-4
+          left wper(560)
+          right wper(320)
+          width auto
+        &-5
+          left wper(910)
+        &-6
+          left wper(1065)
+        &-7
+          background #536068
+          bottom hper(130)
+          left wper(540)
+          right wper(300)
+          width auto
+          padding .7em .5em
+          border-radius 1em
+          border 4px solid #49c9d4
+          font-size px2empc(23.7)
+          font-weight 400
+          color #ffffff
+    @media (max-width mobile-width)
+      padding 0 0 px2vwmb(130)
+      .text
+        padding 0
+        text-align left
+      .extra-img
+        background-image mImgUrl
+      if (replaceMobileImg == false)
+        .extra-img
+          wper(x)
+            (x/4.38%)
+          hper(x)
+            (x/5.97%)
+          width px2vwmb(438)
+          &:before
+            padding-top wper(597)
+          .desc
+            width wper(130)
+            font-size px2vwmb(20)
+            text-align center
+            &-l
+              top hper(90)
+            &-r
+              top hper(575)
+              width wper(100)
+            &-1
+              left wper(20)
+            &-2
+              left wper(150)
+            &-3
+              left wper(300)
+              right wper(-10)
+              width auto
+            &-4
+              top hper(445)
+              left wper(120)
+              right wper(110)
+              width auto
+            &-5
+              left wper(285)
+            &-6
+              left wper(120)
+            &-7
+              left wper(75)
+              right wper(47)
+              bottom hper(290)
+              width auto
+              border 2px solid #49c9d4

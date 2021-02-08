@@ -1,0 +1,33 @@
+/**
+ * @emmet [class='${0} section block-base-lb']>.w1366>.text>h2+p
+ * @description 文案基于左下角，背景图案右上角
+ * @author tobin.xu 
+ * @created 2020.12.1
+ */
+
+@import '../../static'
+base-lb(bg = null, bgColor = null, mBg = null, bgUrl = bg, mBgUrl = mBg)
+  &.block-base-lb
+    padding-top wper(530)
+    padding-bottom wper(100)
+    background-image bgUrl
+    background-position top
+    background-size 100% auto
+    background-repeat no-repeat
+    background-color bgColor
+    .text
+      padding-right 48%
+      text-align left
+      h2
+        padding-right 20%
+    @media (max-width mobile-width)
+      wper(x)
+        (x/6.4%)
+      &.section
+        padding wper(400) 0 wper(80)
+        background-image mBgUrl
+        .text
+          padding-right 0
+          text-align left
+        .bg-text
+          font-size px2vwmb(16)

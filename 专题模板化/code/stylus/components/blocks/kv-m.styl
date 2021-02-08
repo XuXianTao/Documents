@@ -1,0 +1,33 @@
+/**
+ * @emmet .a.section.block-kv-m>.w1366>.text>h2+h3+p+tp-s:tag-group
+ * @description 第一个banner模块的移动端通用样式
+ * @author tobin.xu
+ * @created 2020.11.26
+ */
+
+@import '../../static'
+kv-m()
+  &.block-kv-m
+    background-size cover
+    @media(max-width mobile-width)
+      &.section
+        padding-bottom px2vwmb(525)
+        h2
+          padding-bottom 0
+          font-size px2vwmb(54)
+          font-weight 500
+        h3
+          padding 0 6%
+          padding-top .5em
+          font-size px2vwmb(38)
+          font-weight 400
+        p
+          padding .2em 6%
+        .model
+          border-radius .5em
+          font-size px2vwmb(21)
+        .tag-group
+          margin-top 1em
+          font-size px2vwmb(12)
+          .tag
+            border-radius px2vwmb(10)

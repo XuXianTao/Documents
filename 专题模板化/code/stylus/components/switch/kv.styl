@@ -1,0 +1,66 @@
+/**
+ * @emmet .a.section.block-tl-kv>.w1366>.text>h4>img[src='/assets/images/icon/logo-tp-omada-white.png'][alt='TP-Link|Omada']+span{Centralized Management}^h2{${0}}+p{${1}}+p>span.model{}
+ * @description tl-sl系列产品的第一个banner样式
+ * @author tobin.xu
+ * @created 2020.11.26
+ */
+@import '../../static'
+switch-kv(bgUrl = undefined, mBgUrl = undefined)
+  &.block-switch-kv
+    background bottom / cover no-repeat #121a1f
+    background-image url(./img/01-bg.jpg) if (bgUrl is undefined)
+    background-image bgUrl 
+    padding px2empc(115) 0 px2empc(485)
+    color #ffffff
+    .text
+      text-align center
+      h2
+        padding-top .2em
+        font-size px2empc(57)
+        font-weight 500
+      p
+        padding-top .5em
+        font-size px2empc(30)
+      h4
+        font-size px2empc(36)
+        line-height 1
+        font-weight 300
+        img 
+          height (71/36em)
+          width auto
+          margin-right .5em
+          vertical-align: bottom
+        span 
+          position relative
+          bottom .4em
+      .model
+        display inline-block
+        padding 0 .5em
+        background #36444b
+        border-radius (15/30em)
+    @media (max-width mobile-width)
+      if (mBgUrl is undefined)
+        background-image url('./m/01-bg.jpg')
+      else 
+        background-image mBgUrl 
+      padding px2vwmb(95) 0 px2vwmb(425)
+      .text
+        font-size px2vwmb(13)
+        text-align center
+        h2
+          padding-bottom 0
+          font-weight 500
+          font-size px2vwmb(40)
+        p
+          padding-top 1rem
+          font-size px2empc(32)
+          font-weight 300
+        h4
+          img
+            height px2vwmb(51)
+          span
+            display block
+            padding-top 1em
+            font-size px2vwmb(28)
+        .model
+          padding 0 1em

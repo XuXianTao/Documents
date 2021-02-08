@@ -1,0 +1,129 @@
+mobile-width = 736px;
+content-width = 1366px;
+// font-size使用1.11vw时，pc最小字体时候的宽度 12px / (1.11vw / 100vw)
+// 在section上使用background来引入图片，其高度=[{图片高度}/16px]em
+// 当屏幕宽度小于1080px之后，使用vw作为单位，则图片高度修改为[Xem*1.111]vw
+min-fontsize-width = 1080px;
+max-fontsize-width = 1440px;
+max-page-width = 1920px;
+fontSize = 14
+
+t-bold = 700
+t-mid = 500
+t-regular = 400
+t-light = 300
+
+px2empc(pxNum)
+	(pxNum / 16em)
+px2vwpc(pxNum)
+	(pxNum / 19.2vw)
+px2emmb(pxNum)
+	(pxNum / 10.35em)
+px2vwmb(pxNum)
+	(pxNum / 6.4vw)
+
+// 移动端的640px->414px从16px->10.35px
+if (compatibleTapo is defined)
+	px2remmb(pxNum)
+		(pxNum / 16rem)
+else 
+	px2remmb(pxNum)
+		(pxNum / 2 / 10.35rem)
+set-font(x)
+	font-size px2empc(x)
+	@media (max-width mobile-width)
+		font-size px2remmb(x)
+set-font-bg(x)
+	font-size px2empc(x)
+	@media (max-width mobile-width)
+		font-size px2vwmb(x)
+setContent(type, x, pwidth = 1920, hideMobile = true)
+	&:{type}
+		pwidth4Per = (pwidth / 100)
+		content: ''
+		display block
+		height 0
+		padding-top (x / pwidth4Per)%
+		if (hideMobile)
+			@media (max-width mobile-width)
+				display none
+wper(x)
+	(x/19.2%)
+m-wper(x)
+	(x/6.4%)
+// 角度，距离，大小，颜色，透明度
+getShadow(xdeg, xlen, xsize, xcolor, xopacity = 1)
+	offsetX = xlen * cos(180deg - xdeg)
+	offsetY = xlen * sin(180deg - xdeg)
+	(offsetX offsetY xsize alpha(xcolor, xopacity))
+setShadow(xdeg, xlen, xsize, xcolor, xopacity = 1)
+	getShadow(xdeg, xlen, xsize, xcolor, xopacity = 1)
+buildWidth(widthArr)
+	for w in widthArr
+		.w{w}
+			position: relative;
+			max-width 90%
+			margin: 0 auto;
+			width: px2empc(w)
+			@media (max-width: min-fontsize-width) and (min-width: mobile-width + 1)
+				width: (w / 16 * 1.111)vw;
+			@media (max-width: mobile-width)
+				width: auto;
+				max-width 100%
+setShortCut(heightArr...)
+	for h, i in heightArr[0]
+		.section:nth-child({i+1})
+			background url('./img/0'+(i+1)+'.jpg') center / contain no-repeat
+			height 0
+			width 100%
+			padding-top wper(h)
+	if (length(heightArr) > 1)
+		for h, i in heightArr[1]
+			@media (max-width mobile-width)
+				.section:nth-child({i+1})
+					background-image url('./m/0'+(i+1)+'.jpg')
+					padding-top (h/6.4%)
+setInlineOfNum(num, pad=1em)
+	display inline-block
+	box-sizing border-box
+	width ((100% / num) - 1%)
+	padding pad
+	vertical-align: top
+setInlineImg(num, imgClass, imgUrl, imgWidth, h2w = 100%, bgHeightPer = 0)
+	{imgClass}
+		display block
+		width imgWidth 
+		max-width 100%
+		margin auto
+		line-height 0
+		&:before
+			content: ''
+			display block
+			width 100%
+			height 0
+			padding-top h2w
+			background-image imgUrl is a 'string' ? url(imgUrl) : imgUrl
+			background-size: (100% * num) auto
+			background-repeat no-repeat
+	for i in 1..num
+		&-{i}
+			{imgClass}:before
+				background-position ((100% / (num - 1)) * (i - 1)) bgHeightPer
+setBgImg(imgUrl, imgWidth, imgH2W)
+	position relative
+	width imgWidth
+	margin auto
+	&:before
+		content: ''
+		display block
+		width 100%
+		height 0
+		padding-top imgH2W
+		background url(imgUrl) center / contain no-repeat
+setBgImgInPC(imgUrl, imgWidth, imgH2W)
+	@media (min-width mobile-width + 1)
+		setBgImg(imgUrl, imgWidth, imgH2W)
+
+mTextBg(bgUrl, bgHeight, bgColor = #fff)
+	background bgUrl bottom / 100% auto no-repeat bgColor
+	padding-bottom px2vwmb(bgHeight + 50)

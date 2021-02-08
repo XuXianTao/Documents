@@ -1,0 +1,32 @@
+/**
+ * @emmet [class='${0} section block-base']>.w1366>.text>h2+p
+ * @description 最基本的pc水平居中文案加背景图片
+ * @author tobin.xu 
+ * @created 2020.11.26
+ */
+
+@import '../../static'
+base(bg = null, bgColor = #ffffff, bgHeight = 600, mBg = null, mBgHeight = 400)
+  &.block-base
+    padding-top px2empc(90)
+    padding-bottom wper(660) if bgHeight == null
+    padding-bottom wper(bgHeight + 60) if bgHeight
+    background-image bg
+    background-position bottom
+    background-size 100% auto
+    background-repeat no-repeat
+    background-color bgColor
+    &>.bg-text
+      padding-top wper(bgHeight)
+      height 0
+    .text
+      text-align center
+    @media (max-width mobile-width)
+      &.section
+        padding 0 0 px2vwmb(mBgHeight+40)
+        background-image mBg
+        .text
+          text-align left
+        &>.bg-text
+          padding-top (mBgHeight / 6.4%)
+          font-size px2vwmb(16)

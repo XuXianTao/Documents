@@ -1,0 +1,64 @@
+/**
+ * @emmet .section.block-step-big-num>.w1680>.text.t-center>h2+table>tr>td*3>.img>img[alt="step$"]^.order>.inner{$}^.info>p
+ * @description 带有图片和大序号的步骤文案的板块
+ * @author tobin.xu
+ * @craeted 2020.11.25
+ */
+@import '../../static'
+step-big-num(orderColor = #455167)
+  &.block-step-big-num
+    padding px2empc(130) 0 
+    .text
+      text-align center
+    table
+      width 100%
+      table-layout fixed
+      margin-top px2empc(80)
+      .img
+        height px2empc(300)
+        padding-bottom px2empc(45)
+        img 
+          max-width 100%
+          max-height 100%
+      .order
+        position relative
+        display inline-block
+        background orderColor
+        width 1.5em
+        height @width
+        border-radius 50%
+        font-size px2empc(30)
+        .inner
+          position absolute
+          top 0
+          bottom 0
+          left 0
+          right 0
+          margin auto
+          width 1em
+          height 1em
+          font-weight 700
+          line-height .9
+          color #ffffff
+      .info
+        padding 0 2em
+      p
+        font-weight 300
+    @media (max-width mobile-width)
+      &.section
+        padding-bottom px2vwmb(80)
+        table, tbody, tr, td
+          display block
+          width 100%
+          margin auto
+        td
+          padding px2vwmb(60) 0 px2vwmb(40)
+        .text
+          text-align center
+        table
+          .img
+            height px2vwmb(280)
+          .order
+            font-size px2vwmb(30)
+          .info
+            padding-top 3em

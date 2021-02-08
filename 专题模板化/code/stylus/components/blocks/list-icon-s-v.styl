@@ -1,0 +1,35 @@
+/**
+ * @emmet .section.block-list-icon-s-v>.w1680>.text>ul.list>li.li.li-$*3>.icon{&nbsp;}+.info>h3+p
+ * @description list-icon-small-vertical多个小图标+文案(垂直上图下文)一行内显示
+ * @author tobin.xu
+ * @created 2020.11.25
+ */
+@import '../../static'
+list-icon-s-v(itemNumber = 8, iconUrl = null, iconWidth = px2empc(80), icH2W = 100%, bgHeightPer = 0, mIconWidth = px2vwmb(100))
+  &.block-list-icon-s-v
+    padding px2empc(70) 0
+    .list
+      text-align center
+      .li
+        setInlineOfNum(itemNumber)
+        setInlineImg(itemNumber, '.icon', iconUrl, iconWidth, icH2W, bgHeightPer)
+        padding 1em
+        .info
+          padding-top 1em
+          line-height 1.2
+          font-weight 400
+    @media (max-width mobile-width)
+      &.section
+        padding px2vwmb(80) 0
+        .list
+          .li
+            width 49.5%
+            padding px2vwmb(30)
+            .icon
+              width mIconWidth
+            .info
+              font-size px2vwmb(25)
+              h3
+                padding 0 6%
+              p
+                padding-top .5em

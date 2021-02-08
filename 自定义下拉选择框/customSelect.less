@@ -1,0 +1,134 @@
+.customSelect(@customSelect) {
+  .input-el-text() {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 (-20/16em);
+    padding: (10/16em) (20/16em);
+    border-radius: (20/16em);
+    box-shadow: setShadow(135deg, 2px, 2px, @theme-font-color, .18);
+    background: #ffffff;
+    border: none;
+    font-size: px2empc(16);
+    line-height: (20/16);
+    font-weight: 500;
+
+    &:focus {
+      box-shadow: setShadow(135deg, 2px, 2px, @theme-font-color, .5);
+    }
+  }
+  .@{customSelect} {
+    position: relative;
+    &.active {
+      .@{customSelect}-active {
+        .arrow {
+          transform: rotate(180deg) translateZ(0);
+        }
+      }
+    }
+
+    &-active,
+    &-dropdown {
+      .input-el-text();
+    }
+
+    &-active {
+      position: relative;
+      z-index: 15;
+      margin-bottom: 0;
+      height: (40/16em);
+      padding-right: px2empc(40);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      input {
+        box-sizing: border-box;
+        max-width: 100%;
+        outline: none;
+        font: inherit;
+      }
+
+      .arrow {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: px2empc(15);
+        margin: auto;
+        width: px2empc(15);
+        height: ($width * 11/ 15);
+        background: url(./img/arrow-theme-down.svg) center / contain no-repeat;
+        transform: rotate(0) translateZ(0);
+        transition: transform .2s;
+        transform-origin: 50% 50%;
+      }
+    }
+
+    &-dropdown {
+      position: absolute;
+      z-index: 10;
+      top: (20/16em);
+      padding: (25/16em) px2empc(15) 1em 0;
+      margin-top: 0;
+      border-radius: 0 0 (20/16em) (20/16em);
+      user-select: none;
+      color: #6c7d85;
+    }
+
+    &-group {
+      max-height: (200/16em);
+      padding: 1em 0;
+      overflow: auto;
+      // transform: translateZ(0);
+      // FireFox
+      scrollbar-width: thin;
+      // Webkit
+      &::-webkit-scrollbar {
+        width: 10px;
+        height: 90%;
+        &-track {
+          border-left: 2px solid #fff;
+          border-right: $border-left;
+          background: fade(#a7a9ac, 30%);
+          border-radius: 6px;
+        }
+        &-thumb {
+          height: 32px;
+          box-shadow: inset 0px 0px 2px fade(#000000, 30%);
+          background: #ffffff;
+          border-radius: 5px;
+          transform: scaleX(10/6);
+        }
+      }
+    }
+
+    &-item {
+      cursor: pointer;
+      position: relative;
+      padding: (10/16em) (20/16em);
+
+      & + .@{customSelect}-item {
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 1px;
+          background: fade(#a7a9ac, 20%);
+        }
+      }
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      &:hover, &.hover {
+        background: fade(#a7a9ac, 10%);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

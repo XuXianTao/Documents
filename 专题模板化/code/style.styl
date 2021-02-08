@@ -1,0 +1,140 @@
+@import 'template/stylus/static'
+._modules
+	padding 2em 4em 20em
+h1
+	font-size px2empc(60)
+	font-weight 700
+#textarea-global-style
+	width 100%
+:not(.section)
+	dl
+		& + dl
+			margin-top 3em
+	dt
+		border-bottom 2px solid #cccccc
+		font-size px2empc(40)
+		font-weight 700
+		a
+			position relative
+			color currentColor
+			text-decoration: none
+			&:before
+				display none
+				content: '#'
+				position absolute
+				right 102%
+			&:hover
+				opacity .5
+				&:before
+					display block
+	dd
+		padding 2em 0
+		border 1px solid #cccccc
+		margin-top 1em
+		.template-item
+			cursor pointer
+			position relative
+			display inline-block
+			box-sizing border-box
+			width (93/3%)
+			margin 1%
+			font-size .3em
+			vertical-align: top
+			&:before
+				pointer-events: none
+				position absolute
+				z-index 1
+				content: ''
+				display block
+				top 0
+				left 0
+				right 0
+				bottom 0
+				background gray
+				opacity 0
+				transition opacity .2s
+			&:hover
+				&:before
+					opacity .2
+.template-item
+	position relative
+	border 1px solid #eee
+	.actions
+		cursor pointer
+		position absolute
+		top 0
+		right 0
+		font-size 3em
+		.tp-btn
+			z-index: 20
+			& + .tp-btn
+				margin-left 1em
+	&_content
+		position relative
+	&_textarea, &_iframe
+		position absolute
+	&_textarea
+		top 0
+		bottom 0
+		left 0
+		right 0
+		width 100%
+		height 100%
+		opacity 0
+		display none
+	&_link
+		position absolute
+		z-index 10
+		display block
+		top 0
+		bottom 0
+		left 0
+		right 0
+	&_iframe
+		display none
+		z-index 10
+		visibility: hidden
+		opacity: 0
+		height 640px
+		width 360px
+		left 0
+		top 100%
+		border 1px solid #999
+		transform scale(.5)
+		transform-origin top left
+		transition opacity .2s
+	&_content:hover
+		.template-item_iframe
+			display block
+			visibility visible
+			opacity 1
+.tp-dialog .tp-dialog-box
+	max-width 90%	
+	resize both
+	h2
+		margin auto
+.tp-dialog
+	.template-item
+		.actions
+			font-size 1em
+		&_iframe
+			top 0
+			transform scale(1)
+.custom-msg-alert
+	opacity 0
+	position fixed
+	z-index 1000000
+	width 300px
+	top 10px
+	right (- @width - 10px)
+	box-sizing border-box
+	padding 10px 20px
+	background #ffffff
+	box-shadow: 1px 1px 5px #555
+	border-radius 10px
+	font-size 1.5em
+	transition all .5s
+	&.active
+		right 10px
+		opacity: 1
+

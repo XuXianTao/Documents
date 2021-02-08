@@ -1,0 +1,1 @@
+.section h2:empty:before{content:'[<h2> Title]'}.section p:empty:before{content:'[<p> Description]'}.section .model:empty:before{content:'[MODEL]'}.section .bg-text:before{content:'[Background Text]';position:absolute}#section_textarea-style{display:none}

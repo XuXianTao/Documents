@@ -1,0 +1,142 @@
+/**
+ * @emmet 详见snippets.json
+ * @description Omada SDN的说明板块
+ * @author tobin
+ * @created 2020.11.26
+ */
+@import '../../static'
+omada-sdn(imgUrl = null, iconUrl = null)
+  &.block-omada-sdn
+    background #efefef
+    padding px2empc(90) 0 px2empc(100)
+    a
+      text-decoration: none
+      color currentColor
+    .text
+      text-align: center
+    .link
+      padding-top 2em
+      color #ffffff
+    .learn-more
+      display inline-block
+      border-radius .5em
+      background #005564
+      padding .25em 1em
+      &:hover
+        opacity .75
+      &:active
+        opacity .5
+    .img 
+      wper(x)
+        (x/10.54%)
+      hper(x)
+        (x/5.36%)
+      position relative
+      left (-60/13.66%)
+      width px2empc(1054)
+      margin px2empc(60) auto px2empc(90)
+      background center / contain no-repeat
+      background-image imgUrl
+      &:before
+        content: ''
+        display block
+        padding-top wper(536)
+      a
+        &:hover
+          color darken(#4acbd6, 50%)
+      .desc 
+        font-size: px2empc(18)
+        font-weight 500
+        text-align center
+        line-height 1
+        color #000000
+        &-s
+          width wper(70)
+          font-size 0.875em
+        &-b
+          top hper(550)
+        &-1
+          top hper(125)
+          left wper(510)
+          right wper(380)
+        &-2
+          top hper(275)
+          left wper(880)
+          right wper(50)
+        &-3
+          top hper(280)
+          left wper(170)
+          right wper(745)
+        &-4
+          top hper(105)
+          left wper(103)
+        &-5
+          top hper(205)
+        &-5, &-6
+          left wper(12)
+        &-6
+          top hper(340)
+        &-7
+          top hper(440)
+          left wper(103)
+        &-8
+          left wper(310)
+          right wper(470)
+        &-9
+          left wper(620)
+          right wper(255)
+        &-10
+          left wper(880)
+          right wper(25)
+        &-11
+          top hper(500)
+          left wper(965)
+          right wper(10)
+          color #ffffff
+          font-weight 500
+          font-size px2empc(20)
+    .list
+      display table
+      table-layout: fixed
+      margin auto
+      td
+        vertical-align: top
+      .info
+        padding-top .2em
+        padding-left 1em
+        font-size px2empc(20)
+        line-height 1.5
+        text-align left
+      .li
+        setInlineOfNum(4)
+        setInlineImg(4, '.icon', iconUrl, px2empc(70))
+        display table-cell
+        padding 1em 2em
+        width auto
+        max-width 24%
+    @media (max-width mobile-width)
+      padding-bottom px2vwmb(70)
+      .text
+        text-align left
+      .link
+        padding-top 1em
+        font-size 1.5rem
+      .img
+        left auto
+        width px2vwmb(584)
+        font-size px2vwmb(12)
+      .list
+        display block
+        padding 0 3%
+        .li
+          display: inline-block
+          padding px2vwmb(10)
+          max-width none
+          width 42.5%
+          margin auto
+          &:nth-child(2n+1)
+            width 55%
+          .icon
+            width px2vwmb(70)
+          .info
+            font-size px2vwmb(20)

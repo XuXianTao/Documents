@@ -1,0 +1,27 @@
+// 新版tag样式，使用img标签插入图标
+.tag-group
+  height px2empc(45)
+  letter-spacing: .7em
+  padding-bottom 2px
+  &.no-border
+    .tag
+      border none
+  .tag
+    display inline-block
+    height 100%
+    border-radius px2empc(10)
+    border 1px solid #b4b6b8
+    background #ffffff
+    overflow: hidden
+    &.no-border
+      border none
+    img
+      max-height: 100%
+      max-width 100%
+  @media (max-width mobile-width)
+    height px2vwmb(45)
+    padding-left 6%
+    padding-right 6%
+    .tag
+      .inner
+        border-radius px2vwmb(10)

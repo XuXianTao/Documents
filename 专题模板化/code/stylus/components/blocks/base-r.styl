@@ -1,0 +1,31 @@
+/**
+ * @emmet [class='${0} section block-base-r']>.w1366>.text>h2+p
+ * @description 文案在右侧的基本板块
+ * @author tobin.xu 
+ * @created 2020.12.1
+ */
+
+@import '../../static'
+base-r(bg = null, bgColor = null, bgHeight = 600, mBg = null, bgUrl = bg, mBgUrl = mBg)
+  &.block-base-r
+    padding px2empc(240) 0
+    background-image bgUrl
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    background-color bgColor
+    min-height px2empc(bgHeight)
+    .text
+      padding-left 58%
+      text-align left
+    @media (max-width mobile-width)
+      wper(x)
+        (x/6.4%)
+      &.section
+        padding 0 0 wper(220)
+        background-image mBgUrl
+        .text
+          padding-left 0
+          text-align left
+        .bg-text
+          font-size px2vwmb(16)

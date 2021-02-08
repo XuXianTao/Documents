@@ -1,0 +1,8 @@
+.section
+	&.bg-top:before, &.bg-bottom:after
+		content: ''
+		display block
+		height 0
+	@media (max-width mobile-width)
+		&.bg-top:before, &.bg-bottom:after
+			content: none

@@ -1,0 +1,11 @@
+globalWidth = ()
+@import '../../../stylus/variables.styl';
+.overview-content
+	buildWidth(globalWidth)
+	.section
+		switch-port-application()
+		&.block-switch-port-application
+			color #ffffff
+			@media (max-width mobile-width)
+				.bg-text .desc
+					color #ffffff

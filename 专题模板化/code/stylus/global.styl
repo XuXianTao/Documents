@@ -1,0 +1,135 @@
+.overview-content{font-size:16px; font-weight:300; margin:0 auto; max-width: 1920px;}
+.overview-content .w1366{ margin:0 auto; position:relative; width:85.375em;}
+.overview-content .nowrap{ white-space:nowrap;}
+.overview-content .regular{ font-weight:400 !important;}
+.overview-content .medium{ font-weight:500 !important;}
+.overview-content .bold{ font-weight:700 !important;}
+.overview-content .text h2{ font-size:3.125em; line-height:1.2;}
+.overview-content .text h3{ font-size:1.875em; line-height:1.2;}
+.overview-content .text p{ font-size:1.25em; line-height:1.5; padding-top:1em;}
+@media (max-width:1440px){
+ .overview-content { font-size:1.1111vw;}
+}
+if (compatibleTapo is defined)
+  @media (max-width:736px){
+  .overview-content{ min-width:320px; font-size: 10.35px;}
+  .overview-content .w1366{ width:auto;}
+  .overview-content .text h2{ font-size:2.5em; padding:(3em / 2.5) 6% (2em / 2.5);}
+  .overview-content .text h3{ font-size:2em; padding:0 6% (2em / 2);}
+  .overview-content .text p{ font-size:1.75em; padding:0 6%;}
+  }
+else 
+  @media (max-width:736px){
+    html{ font-size:10.35px;}
+    .overview-content{min-width:320px;}
+    .overview-content .w1366{width:auto;}
+    .overview-content .text h2{ font-size:2.5rem; padding:3rem 6% 2rem;}
+    .overview-content .text h3{ font-size:2rem; padding:0 6% 2rem;}
+    .overview-content .text p{ font-size:1.75rem; padding:0 6%;}
+  }
+
+// ---------------------------------------------------------------------------
+@import './variables.styl'
+.overview-content
+  max-width (max-page-width/16)em
+  .text h2
+    font-weight: 400; 
+  @media (max-width mobile-width)
+    h2
+      box-sizing border-box
+    
+  /* Default Globale Setting */
+  if (!(disableDefault is defined) or (disableDefault == false))
+    .section
+      background-repeat no-repeat
+      background-size cover
+      background-position center
+      &-right
+        text-align right
+        .text
+          display inline-block
+          text-align left
+      @media (max-width mobile-width)
+        padding-top 0
+        background-size 100% auto
+        background-position bottom
+    .regular
+      &, & *
+        font-weight 400
+    .medium
+      &, & *
+        font-weight 500
+    .bold 
+      &, & *
+        font-weight 700
+    .clearfix:after
+      content: ''
+      display block
+      clear both
+    .t
+      &-left
+        text-align: left
+      &-right
+        text-align: right
+      &-center
+        text-align: center
+    .pa // 段落文字的样式paragraph
+      font-size 1.25em
+      line-height:1.5;
+      padding-top:1em;
+      @media (max-width 736px)
+        font-size:1.75rem
+        padding:0 6%;
+    .hidden
+      display none
+    .nowrap
+      white-space: nowrap
+    .table
+      display table
+      width 100%
+      .tr
+        display table-row
+      .td
+        display table-cell
+    .text .note, .note
+      font-size: 0.875em;
+      p, span
+        font-size: 0.875em;
+      @media (max-width: mobile-width)
+        padding 0 6%
+        font-size: 1.2rem;
+        p, span
+          font-size: 1.2rem;
+    @media (max-width: mobile-width)
+      ul
+        padding: 0 6%;
+  /*[End] Default Globale Setting */
+  .section
+    position: relative
+    box-sizing: border-box
+    overflow: hidden
+    .bg-text
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      height: 100%
+      .center-block
+        left: 0
+        right: 0
+        margin auto
+        text-align: center
+        div
+          display: inline-block
+          position relative
+      &>div
+        position: absolute
+  if !(globalWidth is defined)
+    globalWidth = (750 850 960 1024 1050 1200 1250 1366 1500 1680 1720 1730 1800)
+  buildWidth(globalWidth)
+  if (needTag is defined && needTag == true)
+    @import './components/tag-old.styl'
+  if (needTag is defined && needTag == 'new')
+    @import './components/tag.styl'
+  if (needApp is defined && needApp == true)
+    @import './components/app.styl'
