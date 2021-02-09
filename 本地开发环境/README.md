@@ -84,3 +84,16 @@
 -   lottie常见的问题：https://www.ui.cn/detail/478730.html
 -   GA的url生成器与其他相关的GA指南：https://ga-dev-tools.appspot.com/dimensions-metrics-explorer/
 -   GA维度和指标：https://support.google.com/analytics/answer/1033861?hl=en
+
+### 浏览器插件
+- ColorPick Eyedropper
+- Google Optimize
+- JSON Viewer
+- LiveReload
+- Wappalyzer
+- Octotree - GitHub code tree
+- Tabbed Postman - REST Client
+- 捕捉GIF
+- Modify Headers for Google Chrome™
+- Vue.js devtools
+- 二维码（生成及识别）
