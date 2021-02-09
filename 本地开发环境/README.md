@@ -32,6 +32,10 @@
 
 -   imagemagick
 
+
+#### Adobe 解锁
+- AMT+
+
 ### 在线工具
 
 -   图片压缩：
