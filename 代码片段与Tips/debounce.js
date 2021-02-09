@@ -16,8 +16,9 @@ function findDebounceHandler(callback, delay = 1000) {
         if (Promise) return new Promise(function(resolve) {
           if (timeout) clearTimeout(timeout);
           timeout = setTimeout(function() {
-            let result = callback.apply(_this, args) if ((Promise)) return resolve(result)
-              else return result;
+            let result = callback.apply(_this, args);
+            if ((Promise)) return resolve(result);
+            else return result;
           }, delay)
         })
       }
